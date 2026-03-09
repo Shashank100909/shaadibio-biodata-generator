@@ -1,0 +1,249 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(236, 72, 153, 0.15);
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.app-title {
+  font-size: 32px;
+  color: #ec4899;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.demo-banner {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 2px solid #fbbf24;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(251, 191, 36, 0); }
+}
+
+.demo-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.demo-text {
+  flex: 1;
+  font-size: 13px;
+  color: #78350f;
+  line-height: 1.6;
+}
+
+.demo-text strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #92400e;
+}
+
+.demo-text div {
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 3px 0;
+  display: inline-block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #ec4899;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+  transform: translateY(-1px);
+}
+
+.login-card input.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-left: 4px;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error-banner,
+.success-banner {
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.error-banner {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 2px solid #fecaca;
+}
+
+.success-banner {
+  background: #f0fdf4;
+  color: #166534;
+  border: 2px solid #bbf7d0;
+}
+
+.error-icon,
+.success-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #db2777 0%, #be185d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.signup-text {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.signup-text a {
+  color: #ec4899;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.signup-text a:hover {
+  color: #db2777;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    padding: 40px 30px;
+  }
+  
+  .app-title {
+    font-size: 28px;
+  }
+}
