@@ -7,50 +7,23 @@ function Preview({ biodata, template }) {
 
   const downloadPDF = () => {
 
-    const element = document.getElementById("biodata-preview");
+    const element = document.querySelector("#biodata-preview > div");
 
-    // Different settings for Template 1 (single page) vs Template 2 (multi-page)
-    const options = template === 1 ? {
+    const options = {
       margin: 0,
       filename: "shaadibio-biodata.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { 
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        letterRendering: true
+      image: { type: "jpeg", quality: 1 },
+      html2canvas: {
+        scale: 3,
+        useCORS: true
       },
       jsPDF: {
         unit: "mm",
         format: "a4",
-        orientation: "portrait",
-        compress: true
+        orientation: "portrait"
       },
-      pagebreak: { 
-        mode: ['avoid-all', 'css', 'legacy'],
-        before: '.page-break-before',
-        after: '.page-break-after',
-        avoid: '.biodata-container'
-      }
-    } : {
-      // Template 2 - Multi-page settings (let html2pdf auto-paginate)
-      margin: 0,
-      filename: "shaadibio-biodata.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { 
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        letterRendering: true
-      },
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait",
-        compress: true
-      },
-      pagebreak: { 
-        mode: ['avoid-all']
+      pagebreak: {
+        mode: ["css", "legacy"]
       }
     };
 

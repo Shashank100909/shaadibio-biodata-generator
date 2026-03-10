@@ -44,19 +44,13 @@
   max-height: calc(100vh - 250px);
 }
 
-#biodata-preview > * {
-  transform-origin: top left;
-  margin: 0 auto;
-}
 
 @media (max-width: 1200px) {
   #biodata-preview {
     max-height: 600px;
   }
   
-  #biodata-preview > * {
-    transform: scale(0.8);
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -76,9 +70,7 @@
     max-height: 500px;
   }
   
-  #biodata-preview > * {
-    transform: scale(0.5);
-  }
+
 }
 
 @media (max-width: 480px) {
@@ -92,7 +84,5 @@
     max-height: 400px;
   }
   
-  #biodata-preview > * {
-    transform: scale(0.4);
-  }
+
 }

@@ -1,23 +1,7 @@
 
 .template2-container {
   background: transparent;
-  height: calc(3 * 297mm);
-  max-height: calc(3 * 297mm);
-  overflow: hidden;
 }
-
-.template2-page {
-  width: 210mm;
-  height: 297mm;
-  background: #ffe4f2;
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: block;
-  margin-bottom: 0;
-}
-
-
 
 .page1 {
   display: flex;
@@ -228,9 +212,6 @@
   padding: 30px 35px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  height: calc(297mm - 80px);
-  max-height: calc(297mm - 80px);
-  overflow: hidden;
   position: relative;
   box-sizing: border-box;
 }
@@ -340,4 +321,18 @@
 @page {
   size: A4;
   margin: 0;
+}
+
+.template2-page {
+  width: 210mm;
+  height: 297mm;
+  background: #ffe4f2;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+  break-after: page;
+}
+
+.template2-page:last-child {
+  page-break-after: auto;
 }
