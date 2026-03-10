@@ -1,64 +1,48 @@
-import html2pdf from "html2pdf.js";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import TemplateWedding from "../templates/Template1";
 import Template2 from "../templates/Template2";
 import "./Preview.css";
 
 function Preview({ biodata, template }) {
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
+    let pages = document.querySelectorAll("#biodata-preview [class*='-page']");
 
-    const element = document.querySelector("#biodata-preview > div");
+    if (pages.length === 0) {
+      pages = document.querySelectorAll("#biodata-preview > div");
+    }
+    const pdf = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
 
-    const options = {
-      margin: 0,
-      filename: "shaadibio-biodata.pdf",
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: {
+    for (let i = 0; i < pages.length; i++) {
+      const canvas = await html2canvas(pages[i], {
         scale: 3,
-        useCORS: true
-      },
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait"
-      },
-      pagebreak: {
-        mode: ["css", "legacy"]
-      }
-    };
+        useCORS: true,
+        width: pages[i].offsetWidth,
+        height: pages[i].offsetHeight,
+      });
 
-    html2pdf().set(options).from(element).save();
+      const imgData = canvas.toDataURL("image/jpeg", 1.0);
+
+      if (i > 0) pdf.addPage();
+      pdf.addImage(imgData, "JPEG", 0, 0, 210, 297);
+    }
+
+    pdf.save("shaadibio-biodata.pdf");
   };
 
   return (
-
     <div className="preview-wrapper">
-
       <div className="preview-top">
-
-        <button
-          className="download-btn"
-          onClick={downloadPDF}
-        >
+        <button className="download-btn" onClick={downloadPDF}>
           Download PDF
         </button>
-
       </div>
-
       <div id="biodata-preview">
-
-        {template === 1 && (
-          <TemplateWedding biodata={biodata} />
-        )}
-
-        {template === 2 && (
-          <Template2 biodata={biodata} />
-        )}
-
+        {template === 1 && <TemplateWedding biodata={biodata} />}
+        {template === 2 && <Template2 biodata={biodata} />}
       </div>
-
     </div>
-
   );
 }
 
